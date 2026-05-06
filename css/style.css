@@ -1122,6 +1122,25 @@ button {
 }
 
 /* ============================================
+   Exercise Video Demonstrations
+   ============================================ */
+.exercise-video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 36px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.01);
+}
+
+.exercise-video {
+    width: 100%;
+    max-width: 480px;
+    border-radius: 8px;
+    background: #111;
+}
+
+/* ============================================
    Responsive
    ============================================ */
 @media (max-width: 900px) {

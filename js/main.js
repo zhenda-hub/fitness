@@ -64,6 +64,7 @@ exerciseGrid.addEventListener('click', (e) => {
                 </div>
             </div>
         </div>
+        ${ex.youtube ? `<div class="exercise-video-container"><iframe class="exercise-video" src="https://www.youtube.com/embed/${ex.youtube}" frameborder="0" allowfullscreen></iframe></div>` : ''}
         <div class="modal-body">
             <div class="modal-section">
                 <h3>动作步骤</h3>
