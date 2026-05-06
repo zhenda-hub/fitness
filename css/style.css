@@ -3,6 +3,11 @@
    ============================================ */
 
 /* ---------- CSS Variables ---------- */
+html {
+    scroll-padding-top: 80px;
+    scroll-behavior: smooth;
+}
+
 :root {
     --bg: #080808;
     --bg-elevated: #111111;
