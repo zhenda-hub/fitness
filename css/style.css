@@ -1141,6 +1141,29 @@ button {
 }
 
 /* ============================================
+   Muscle Anatomy Visualization
+   ============================================ */
+.muscle-anatomy-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.01);
+}
+
+.muscle-anatomy {
+    width: 200px;
+    height: 400px;
+}
+
+/* 肌肉图文字 */
+.muscle-anatomy text {
+    font-size: 11px !important;
+    font-weight: bold;
+}
+
+/* ============================================
    Responsive
    ============================================ */
 @media (max-width: 900px) {
