@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>铁馆指南 | 增肌减脂训练手册</title>
+    <meta name="description" content="健身房增肌减脂完整指南 - 动作示范、训练计划、饮食建议">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Noise overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <span class="logo-bracket">[</span>铁馆<span class="logo-dot">.</span>指南<span class="logo-bracket">]</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="菜单">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero" class="nav-link active">首页</a></li>
+                <li><a href="#plans" class="nav-link">训练计划</a></li>
+                <li><a href="#exercises" class="nav-link">动作示范</a></li>
+                <li><a href="#diet" class="nav-link">饮食指南</a></li>
+                <li><a href="#faq" class="nav-link">常见问题</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero-grid"></div>
+        <div class="hero-content">
+            <div class="hero-tag">增肌 · 减脂 · 塑形</div>
+            <h1 class="hero-title">
+                <span class="hero-line">每一次</span>
+                <span class="hero-line hero-accent">举铁</span>
+                <span class="hero-line">都是</span>
+                <span class="hero-line hero-stroke">重塑自我</span>
+            </h1>
+            <p class="hero-desc">科学的训练计划 · 详细的动作解析 · 实用的饮食建议<br>从新手到进阶，你的健身房实战手册</p>
+            <a href="#exercises" class="hero-cta">
+                查看动作示范
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                </svg>
+            </a>
+        </div>
+        <div class="hero-scroll">
+            <div class="scroll-line"></div>
+            <span>SCROLL</span>
+        </div>
+    </section>
+
+    <!-- Training Plans -->
+    <section class="section plans" id="plans">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">TRAINING PLANS</span>
+                <h2 class="section-title">训练计划</h2>
+                <p class="section-subtitle">根据你的目标选择合适的训练方案</p>
+            </div>
+
+            <div class="plan-grid">
+                <!-- 增肌计划 -->
+                <div class="plan-card plan-bulk">
+                    <div class="plan-badge">增肌</div>
+                    <h3 class="plan-title">MUSCLE<br>BUILDING</h3>
+                    <div class="plan-meta">
+                        <span>每周 4-5 天</span>
+                        <span>每次 60-90 分钟</span>
+                    </div>
+                    <div class="plan-divider"></div>
+                    <div class="plan-schedule">
+                        <div class="plan-day">
+                            <span class="day-label">DAY 1</span>
+                            <span class="day-muscle">胸部 + 三头</span>
+                            <ul class="day-exercises">
+                                <li>史密斯机平板卧推 <small>4×8-12</small></li>
+                                <li>上斜哑铃卧推 <small>3×10-12</small></li>
+                                <li>蝴蝶机夹胸 <small>3×12-15</small></li>
+                                <li>绳索下压 <small>3×12</small></li>
+                                <li>哑铃颈后臂屈伸 <small>3×12</small></li>
+                            </ul>
+                        </div>
+                        <div class="plan-day">
+                            <span class="day-label">DAY 2</span>
+                            <span class="day-muscle">背部 + 二头</span>
+                            <ul class="day-exercises">
+                                <li>引体向上 / 高位下拉 <small>4×8-12</small></li>
+                                <li>坐姿器械划船 <small>4×10-12</small></li>
+                                <li>绳索直臂下压 <small>3×12-15</small></li>
+                                <li>哑铃交替弯举 <small>3×12</small></li>
+                            </ul>
+                        </div>
+                        <div class="plan-day">
+                            <span class="day-label">DAY 3</span>
+                            <span class="day-muscle">腿部</span>
+                            <ul class="day-exercises">
+                                <li>杠铃深蹲 <small>4×8-10</small></li>
+                                <li>罗马尼亚硬拉 <small>4×8-10</small></li>
+                                <li>腿举 <small>3×12</small></li>
+                                <li>腿弯举 <small>3×12</small></li>
+                                <li>小腿提踵 <small>4×15</small></li>
+                            </ul>
+                        </div>
+                        <div class="plan-day">
+                            <span class="day-label">DAY 4</span>
+                            <span class="day-muscle">肩部 + 手臂</span>
+                            <ul class="day-exercises">
+                                <li>坐姿哑铃推举 <small>4×8-12</small></li>
+                                <li>哑铃侧平举 <small>4×12-15</small></li>
+                                <li>俯身哑铃飞鸟 <small>3×12-15</small></li>
+                                <li>杠铃弯举 <small>3×10</small></li>
+                                <li>碎颅者 <small>3×10</small></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="plan-tip">
+                        <strong>关键原则：</strong>每组做到最后2次吃力（RPE 8），复合动作组间休息2分钟，孤立动作休息60-90秒
+                    </div>
+                </div>
+
+                <!-- 减脂计划 -->
+                <div class="plan-card plan-cut">
+                    <div class="plan-badge">减脂</div>
+                    <h3 class="plan-title">FAT<br>LOSS</h3>
+                    <div class="plan-meta">
+                        <span>每周 4-5 天</span>
+                        <span>每次 45-70 分钟</span>
+                    </div>
+                    <div class="plan-divider"></div>
+                    <div class="plan-schedule">
+                        <div class="plan-day">
+                            <span class="day-label">DAY 1</span>
+                            <span class="day-muscle">上肢力量 + HIIT</span>
+                            <ul class="day-exercises">
+                                <li>哑铃卧推 <small>3×12</small></li>
+                                <li>哑铃划船 <small>3×12</small></li>
+                                <li>肩推 <small>3×12</small></li>
+                                <li>Tabata 4组 <small>20s/10s</small></li>
+                            </ul>
+                        </div>
+                        <div class="plan-day">
+                            <span class="day-label">DAY 2</span>
+                            <span class="day-muscle">下肢力量 + 有氧</span>
+                            <ul class="day-exercises">
+                                <li>深蹲 <small>3×12</small></li>
+                                <li>硬拉 <small>3×10</small></li>
+                                <li>弓步蹲 <small>3×12/腿</small></li>
+                                <li>跑步机 20分钟 <small>心率130-150</small></li>
+                            </ul>
+                        </div>
+                        <div class="plan-day">
+                            <span class="day-label">DAY 3</span>
+                            <span class="day-muscle">有氧恢复</span>
+                            <ul class="day-exercises">
+                                <li>椭圆机 / 游泳 <small>30-40分钟</small></li>
+                                <li>核心训练 <small>3组</small></li>
+                                <li>拉伸放松 <small>10分钟</small></li>
+                            </ul>
+                        </div>
+                        <div class="plan-day">
+                            <span class="day-label">DAY 4</span>
+                            <span class="day-muscle">全身力量 + HIIT</span>
+                            <ul class="day-exercises">
+                                <li>复合动作循环 <small>3轮</small></li>
+                                <li>战绳 <small>4×30s</small></li>
+                                <li>壶铃摆动 <small>3×15</small></li>
+                                <li>波比跳 <small>3×10</small></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="plan-tip">
+                        <strong>关键原则：</strong>保持力量训练强度，加入有氧/HIIT制造热量缺口，蛋白质摄入不能减少
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exercise Demonstrations -->
+    <section class="section exercises" id="exercises">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">EXERCISE GUIDE</span>
+                <h2 class="section-title">动作示范</h2>
+                <p class="section-subtitle">正确的动作是一切进步的基础</p>
+            </div>
+
+            <!-- Muscle Group Tabs -->
+            <div class="muscle-tabs">
+                <button class="muscle-tab active" data-group="chest">胸部</button>
+                <button class="muscle-tab" data-group="back">背部</button>
+                <button class="muscle-tab" data-group="legs">腿部</button>
+                <button class="muscle-tab" data-group="shoulders">肩部</button>
+                <button class="muscle-tab" data-group="arms">手臂</button>
+                <button class="muscle-tab" data-group="core">核心</button>
+            </div>
+
+            <!-- Exercise Cards -->
+            <div class="exercise-grid" id="exerciseGrid">
+                <!-- Dynamically populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Diet Guide -->
+    <section class="section diet" id="diet">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">NUTRITION</span>
+                <h2 class="section-title">饮食指南</h2>
+                <p class="section-subtitle">三分练，七分吃</p>
+            </div>
+
+            <div class="diet-grid">
+                <div class="diet-card diet-protein">
+                    <div class="diet-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="16" y="8" width="32" height="48" rx="4"/>
+                            <line x1="24" y1="20" x2="40" y2="20"/>
+                            <line x1="24" y1="28" x2="40" y2="28"/>
+                            <line x1="24" y1="36" x2="36" y2="36"/>
+                        </svg>
+                    </div>
+                    <h3>蛋白质</h3>
+                    <div class="diet-amount">1.6-2g / 每公斤体重</div>
+                    <ul class="diet-list">
+                        <li>鸡胸肉、牛肉、鱼肉</li>
+                        <li>鸡蛋（全蛋 + 蛋白）</li>
+                        <li>乳清蛋白粉（训练后）</li>
+                        <li>希腊酸奶、豆腐</li>
+                    </ul>
+                    <div class="diet-tip">
+                        <strong>建议：</strong>训练后30-60分钟内补充蛋白+碳水，每天约150g蛋白质（70kg体重）= 3勺蛋白粉+正餐
+                    </div>
+                </div>
+
+                <div class="diet-card diet-carbs">
+                    <div class="diet-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="32" cy="32" r="20"/>
+                            <path d="M32 12v40M12 32h40M19 19l26 26M45 19L19 45"/>
+                        </svg>
+                    </div>
+                    <h3>碳水化合物</h3>
+                    <div class="diet-amount">增肌 4-6g / 减脂 2-3g / 每公斤体重</div>
+                    <ul class="diet-list">
+                        <li>糙米、燕麦、红薯</li>
+                        <li>全麦面包、意面</li>
+                        <li>香蕉（训练前/后）</li>
+                        <li>蔬菜、水果（纤维素）</li>
+                    </ul>
+                    <div class="diet-tip">
+                        <strong>建议：</strong>训练前1-2小时摄入慢碳，训练后配合蛋白质摄入快碳
+                    </div>
+                </div>
+
+                <div class="diet-card diet-fat">
+                    <div class="diet-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M32 8c0 0-20 16-20 30a20 20 0 0040 0c0-14-20-30-20-30z"/>
+                        </svg>
+                    </div>
+                    <h3>健康脂肪</h3>
+                    <div class="diet-amount">0.8-1g / 每公斤体重</div>
+                    <ul class="diet-list">
+                        <li>坚果（杏仁、核桃）</li>
+                        <li>牛油果</li>
+                        <li>橄榄油、鱼油</li>
+                        <li>蛋黄</li>
+                    </ul>
+                    <div class="diet-tip">
+                        <strong>建议：</strong>脂肪是激素合成的基础，不要完全断脂，影响睾酮分泌
+                    </div>
+                </div>
+
+                <div class="diet-card diet-water">
+                    <div class="diet-icon">
+                        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M32 8L18 32a16 16 0 0028 0L32 8z"/>
+                            <path d="M26 38c0 0 2 4 6 4s6-4 6-4"/>
+                        </svg>
+                    </div>
+                    <h3>水分</h3>
+                    <div class="diet-amount">每天 2.5-4 升</div>
+                    <ul class="diet-list">
+                        <li>训练中每15分钟补水</li>
+                        <li>早起空腹一杯温水</li>
+                        <li>避免含糖饮料</li>
+                        <li>可适量黑咖啡（训练前）</li>
+                    </ul>
+                    <div class="diet-tip">
+                        <strong>建议：</strong>脱水会显著降低训练表现，尿液淡黄色为最佳状态
+                    </div>
+                </div>
+            </div>
+
+            <!-- Diet Timing -->
+            <div class="diet-timing">
+                <h3 class="timing-title">进食时间表 <span>11:7 间歇性断食</span></h3>
+                <div class="timing-grid">
+                    <div class="timing-slot">
+                        <div class="time">07:00</div>
+                        <div class="meal">起床 · 黑咖啡 · 水</div>
+                    </div>
+                    <div class="timing-slot">
+                        <div class="time">12:00</div>
+                        <div class="meal">第一餐 · 高蛋白 + 慢碳</div>
+                    </div>
+                    <div class="timing-slot">
+                        <div class="time">15:00</div>
+                        <div class="meal">训练前加餐 · 香蕉 + 坚果</div>
+                    </div>
+                    <div class="timing-slot">
+                        <div class="time">17:00</div>
+                        <div class="meal">训练</div>
+                    </div>
+                    <div class="timing-slot">
+                        <div class="time">18:30</div>
+                        <div class="meal">训练后 · 蛋白粉 + 快碳</div>
+                    </div>
+                    <div class="timing-slot">
+                        <div class="time">19:30</div>
+                        <div class="meal">晚餐 · 蛋白质 + 蔬菜 + 适量碳水</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">FAQ</span>
+                <h2 class="section-title">常见问题</h2>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>新手应该先增肌还是先减脂？</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>体脂率较高（男>25%, 女>35%）建议先减脂，降低关节压力、提高胰岛素敏感性。体脂正常的新手可以直接增肌——新手有"新手福利期"，能同时增肌减脂。前3-6个月专注学会正确动作，重量不急，动作质量是第一位。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>每组之间应该休息多久？</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>复合动作（深蹲、卧推、硬拉等）休息 2-3 分钟，让神经系统充分恢复。孤立动作（夹胸、弯举等）休息 60-90 秒即可。不要边玩手机边休息，控制好节奏，组间休息时间直接影响训练效果。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>每周应该去几次健身房？</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>新手建议每周 3-4 次，每次 45-60 分钟，给身体充分恢复时间。进阶训练者可以 4-5 次。记住：肌肉是在休息时生长的，不是在训练时。每周至少安排 2 天完全休息。另外，一周加一次深蹲，下肢训练带来的激素分泌对全身肌肉生长都有好处。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>蛋白粉必须喝吗？</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>不是必须的，但很方便。蛋白粉只是方便的蛋白质来源，和吃鸡胸肉效果一样。如果你每天能从食物中摄入足够的蛋白质（每公斤体重 1.6-2g），不喝也行。但对于大多数人，用蛋白粉补足缺口是最实际的选择。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>训练前要热身吗？怎么热身？</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>必须热身。推荐方案：跑步机或动态拉伸 5 分钟，然后对当天训练的肌群做 1-2 组空杆/轻重量热身组。不要用静态拉伸热身——冷肌肉拉伸容易受伤，动态活动才是正确的准备方式。</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>为什么我练了很久肌肉不长？</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>检查这三点：1) <strong>吃够了没</strong>——蛋白质和总热量是否达标；2) <strong>睡够了没</strong>——每天 7-8 小时，肌肉在睡眠中修复生长；3) <strong>渐进超负荷</strong>——每组训练有没有比上次多做一点（加重量或加次数）。三者缺一，进步都会停滞。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <span class="logo-bracket">[</span>铁馆<span class="logo-dot">.</span>指南<span class="logo-bracket">]</span>
+                </div>
+                <p class="footer-text">科学的训练 · 正确的动作 · 持续的进步</p>
+                <p class="footer-copy">&copy; 2025 铁馆指南 · 仅供参考，训练前请咨询专业人士</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Exercise Detail Modal -->
+    <div class="modal-overlay" id="exerciseModal">
+        <div class="modal">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-content" id="modalContent">
+            </div>
+        </div>
+    </div>
+
+    <script src="js/exercises.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

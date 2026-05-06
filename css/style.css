@@ -1,0 +1,1237 @@
+/* ============================================
+   铁馆指南 - 工业运动美学
+   ============================================ */
+
+/* ---------- CSS Variables ---------- */
+:root {
+    --bg: #080808;
+    --bg-elevated: #111111;
+    --bg-card: #151515;
+    --fg: #e8e8e8;
+    --fg-muted: #888888;
+    --accent: #FF4D00;
+    --accent-glow: rgba(255, 77, 0, 0.15);
+    --accent-secondary: #00FF87;
+    --border: #222222;
+    --border-light: #2a2a2a;
+    --radius: 8px;
+    --radius-lg: 16px;
+    --font-display: 'Anton', sans-serif;
+    --font-body: 'Noto Sans SC', sans-serif;
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+    color: inherit;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ---------- Noise Overlay ---------- */
+.noise-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+}
+
+/* ============================================
+   Navigation
+   ============================================ */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 20px 0;
+    transition: var(--transition);
+}
+
+.nav.scrolled {
+    background: rgba(8, 8, 8, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.logo-bracket {
+    color: var(--accent);
+}
+
+.logo-dot {
+    color: var(--accent-secondary);
+}
+
+.nav-links {
+    display: flex;
+    gap: 8px;
+}
+
+.nav-link {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    border-radius: var(--radius);
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 16px;
+    right: 16px;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #fff;
+}
+
+.nav-link.active {
+    color: #fff;
+}
+
+.nav-link.active::after {
+    transform: scaleX(1);
+}
+
+/* Hamburger */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 8px;
+    z-index: 1001;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--fg);
+    transition: var(--transition);
+}
+
+.nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ============================================
+   Hero
+   ============================================ */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 120px 24px 80px;
+}
+
+.hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 77, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 77, 0, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -20%;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0, 255, 135, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    text-align: center;
+    z-index: 1;
+}
+
+.hero-tag {
+    display: inline-block;
+    padding: 8px 24px;
+    border: 1px solid var(--border-light);
+    border-radius: 100px;
+    font-size: 0.85rem;
+    letter-spacing: 4px;
+    color: var(--fg-muted);
+    margin-bottom: 40px;
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 10vw, 7rem);
+    line-height: 1.05;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 32px;
+}
+
+.hero-line {
+    display: block;
+}
+
+.hero-accent {
+    color: var(--accent);
+    position: relative;
+    display: inline-block;
+}
+
+.hero-accent::after {
+    content: '';
+    position: absolute;
+    bottom: 5%;
+    left: -2%;
+    right: -2%;
+    height: 6px;
+    background: var(--accent);
+    opacity: 0.3;
+}
+
+.hero-stroke {
+    -webkit-text-stroke: 2px var(--fg);
+    color: transparent;
+}
+
+.hero-desc {
+    font-size: 1.1rem;
+    color: var(--fg-muted);
+    max-width: 520px;
+    margin: 0 auto 40px;
+    line-height: 1.9;
+}
+
+.hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 36px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border-radius: var(--radius);
+    transition: var(--transition);
+    letter-spacing: 0.5px;
+}
+
+.hero-cta:hover {
+    background: #e64500;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(255, 77, 0, 0.3);
+}
+
+.hero-scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    color: var(--fg-muted);
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--fg-muted), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.2); }
+}
+
+/* ============================================
+   Section Common
+   ============================================ */
+.section {
+    padding: 120px 0;
+    position: relative;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+.section-header.visible {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.section-tag {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    letter-spacing: 6px;
+    color: var(--accent);
+    margin-bottom: 16px;
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+}
+
+.section-subtitle {
+    color: var(--fg-muted);
+    font-size: 1.05rem;
+}
+
+/* ============================================
+   Training Plans
+   ============================================ */
+.plans {
+    background: var(--bg-elevated);
+}
+
+.plan-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+.plan-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.plan-card.visible {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.plan-card:hover {
+    border-color: var(--border-light);
+    transform: translateY(-4px);
+}
+
+.plan-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+}
+
+.plan-bulk::before {
+    background: linear-gradient(90deg, var(--accent), #FF8A00);
+}
+
+.plan-cut::before {
+    background: linear-gradient(90deg, var(--accent-secondary), #00D4FF);
+}
+
+.plan-badge {
+    display: inline-block;
+    padding: 4px 16px;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.plan-bulk .plan-badge {
+    background: rgba(255, 77, 0, 0.15);
+    color: var(--accent);
+}
+
+.plan-cut .plan-badge {
+    background: rgba(0, 255, 135, 0.1);
+    color: var(--accent-secondary);
+}
+
+.plan-title {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    line-height: 1.1;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    color: #fff;
+}
+
+.plan-meta {
+    display: flex;
+    gap: 24px;
+    font-size: 0.9rem;
+    color: var(--fg-muted);
+}
+
+.plan-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 24px 0;
+}
+
+.plan-schedule {
+    display: grid;
+    gap: 24px;
+}
+
+.plan-day {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+}
+
+.day-label {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.day-muscle {
+    font-weight: 700;
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.day-exercises li {
+    font-size: 0.88rem;
+    color: var(--fg-muted);
+    padding: 4px 0;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.day-exercises li:last-child {
+    border-bottom: none;
+}
+
+.day-exercises small {
+    color: var(--accent);
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+.plan-tip {
+    margin-top: 24px;
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius);
+    font-size: 0.88rem;
+    color: var(--fg-muted);
+    border-left: 3px solid var(--accent);
+}
+
+.plan-tip strong {
+    color: var(--fg);
+}
+
+/* ============================================
+   Exercise Demonstrations
+   ============================================ */
+.exercises {
+    background: var(--bg);
+}
+
+.muscle-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 48px;
+}
+
+.muscle-tab {
+    padding: 10px 24px;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+    letter-spacing: 0.5px;
+}
+
+.muscle-tab:hover {
+    border-color: var(--fg-muted);
+    color: #fff;
+}
+
+.muscle-tab.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    font-weight: 700;
+}
+
+.exercise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.exercise-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    transition: var(--transition);
+    position: relative;
+    animation: cardIn 0.4s ease backwards;
+}
+
+@keyframes cardIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+.exercise-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(255, 77, 0, 0.08);
+}
+
+.ex-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.ex-difficulty {
+    padding: 3px 12px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.ex-difficulty.beginner {
+    background: rgba(0, 255, 135, 0.1);
+    color: var(--accent-secondary);
+}
+
+.ex-difficulty.intermediate {
+    background: rgba(255, 77, 0, 0.1);
+    color: var(--accent);
+}
+
+.ex-sets {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    color: var(--fg-muted);
+}
+
+.ex-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.ex-muscle {
+    font-size: 0.85rem;
+    color: var(--fg-muted);
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.ex-detail-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--accent);
+    transition: var(--transition);
+}
+
+.ex-detail-btn:hover {
+    gap: 12px;
+}
+
+/* ============================================
+   Modal
+   ============================================ */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    max-width: 640px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    transform: translateY(20px) scale(0.97);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal {
+    transform: translateY(0) scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    transition: var(--transition);
+    z-index: 1;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.modal-header {
+    padding: 36px 36px 0;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+
+.modal-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 0.85rem;
+}
+
+.modal-muscle {
+    color: var(--accent);
+    font-weight: 500;
+}
+
+.modal-sets {
+    color: var(--fg-muted);
+}
+
+.modal-body {
+    padding: 28px 36px 36px;
+}
+
+.modal-section {
+    margin-bottom: 28px;
+}
+
+.modal-section:last-child {
+    margin-bottom: 0;
+}
+
+.modal-section h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+
+.modal-steps {
+    counter-reset: step;
+}
+
+.modal-steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 10px 0 10px 40px;
+    font-size: 0.95rem;
+    color: var(--fg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.modal-steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 10px;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    color: var(--accent);
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+}
+
+.modal-tips li {
+    padding: 10px 0 10px 24px;
+    font-size: 0.92rem;
+    color: var(--fg-muted);
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.modal-tips li::before {
+    content: '!';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    color: var(--accent-secondary);
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--accent-secondary);
+    border-radius: 50%;
+}
+
+/* ============================================
+   Diet Guide
+   ============================================ */
+.diet {
+    background: var(--bg-elevated);
+}
+
+.diet-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 48px;
+}
+
+.diet-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.diet-card.visible {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.diet-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-light);
+}
+
+.diet-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 20px;
+}
+
+.diet-protein .diet-icon { color: var(--accent); }
+.diet-carbs .diet-icon { color: #FFB800; }
+.diet-fat .diet-icon { color: var(--accent-secondary); }
+.diet-water .diet-icon { color: #00B4FF; }
+
+.diet-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.diet-amount {
+    font-size: 0.88rem;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+.diet-list li {
+    font-size: 0.9rem;
+    color: var(--fg-muted);
+    padding: 4px 0;
+    padding-left: 16px;
+    position: relative;
+}
+
+.diet-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 1px;
+    background: var(--fg-muted);
+}
+
+.diet-tip {
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius);
+    font-size: 0.83rem;
+    color: var(--fg-muted);
+    line-height: 1.6;
+}
+
+.diet-tip strong {
+    color: var(--fg);
+}
+
+/* Diet Timing */
+.diet-timing {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+}
+
+.diet-timing.visible {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.timing-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 32px;
+    color: #fff;
+}
+
+.timing-title span {
+    font-size: 0.85rem;
+    color: var(--accent);
+    letter-spacing: 1px;
+    font-family: var(--font-body);
+    font-weight: 500;
+    margin-left: 8px;
+}
+
+.timing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+}
+
+.timing-slot {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.timing-slot:hover {
+    border-color: var(--accent);
+}
+
+.time {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 8px;
+}
+
+.meal {
+    font-size: 0.88rem;
+    color: var(--fg-muted);
+}
+
+/* ============================================
+   FAQ
+   ============================================ */
+.faq {
+    background: var(--bg);
+}
+
+.faq-list {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.faq-item.visible {
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.faq-item.active {
+    border-color: var(--accent);
+}
+
+.faq-question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: left;
+    transition: var(--transition);
+}
+
+.faq-question:hover {
+    color: #fff;
+}
+
+.faq-item.active .faq-question {
+    color: #fff;
+}
+
+.faq-icon {
+    font-size: 1.5rem;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+    color: var(--accent);
+    min-width: 24px;
+    text-align: center;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+}
+
+.faq-answer p {
+    padding: 0 24px 20px;
+    font-size: 0.92rem;
+    color: var(--fg-muted);
+    line-height: 1.8;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.footer {
+    padding: 48px 0;
+    border-top: 1px solid var(--border);
+    background: var(--bg);
+}
+
+.footer-inner {
+    text-align: center;
+}
+
+.footer-brand {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.footer-text {
+    color: var(--fg-muted);
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.footer-copy {
+    color: #444;
+    font-size: 0.8rem;
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   Scrollbar
+   ============================================ */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 900px) {
+    .plan-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .diet-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .timing-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 280px;
+        background: var(--bg-elevated);
+        flex-direction: column;
+        padding: 80px 32px 32px;
+        gap: 0;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        border-left: 1px solid var(--border);
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+    }
+
+    .nav-link {
+        padding: 16px 0;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-link::after {
+        display: none;
+    }
+
+    .hero-title {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+    }
+
+    .hero-desc {
+        font-size: 0.95rem;
+    }
+
+    .section {
+        padding: 80px 0;
+    }
+
+    .section-header {
+        margin-bottom: 40px;
+    }
+
+    .exercise-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .plan-card {
+        padding: 28px;
+    }
+
+    .plan-title {
+        font-size: 2rem;
+    }
+
+    .timing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .diet-timing {
+        padding: 24px;
+    }
+
+    .modal {
+        max-height: 90vh;
+    }
+
+    .modal-header {
+        padding: 28px 24px 0;
+    }
+
+    .modal-body {
+        padding: 20px 24px 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-cta {
+        padding: 14px 28px;
+        font-size: 0.88rem;
+    }
+
+    .muscle-tabs {
+        gap: 6px;
+    }
+
+    .muscle-tab {
+        padding: 8px 16px;
+        font-size: 0.82rem;
+    }
+}
