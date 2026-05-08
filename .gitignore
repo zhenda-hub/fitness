@@ -4,13 +4,21 @@
 # Playwright MCP
 .playwright-mcp/
 
-# Test screenshots
-*.png
-!*.svg
-
 # Editor
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Dependencies
+node_modules/
+
+# Test/temp files
+test-*.png
+screenshot-*.png
+*.tmp
