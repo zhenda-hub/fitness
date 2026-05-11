@@ -598,6 +598,12 @@ button {
     color: var(--accent-secondary);
 }
 
+.ex-muscle-tag {
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+    margin-left: 6px;
+}
+
 .exercise-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));

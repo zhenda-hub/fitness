@@ -1,3 +1,42 @@
+// ============== Plan Exercise Muscles Mapping ==============
+const PLAN_EXERCISE_MUSCLES = {
+    // 增肌计划 - Day 1: 胸部 + 三头
+    "史密斯机平板卧推": "胸大肌中部",
+    "上斜哑铃卧推": "胸大肌上部",
+    "蝴蝶机夹胸": "胸大肌内侧",
+    "绳索下压": "肱三头肌",
+    "哑铃颈后臂屈伸": "肱三头肌长头",
+
+    // 增肌计划 - Day 2: 背部 + 二头
+    "引体向上": "背阔肌",
+    "高位下拉": "背阔肌上部",
+    "坐姿器械划船": "背阔肌、菱形肌",
+    "绳索直臂下压": "背阔肌",
+    "哑铃交替弯举": "肱二头肌",
+
+    // 增肌计划 - Day 3: 腿部
+    "杠铃深蹲": "股四头肌、臀大肌",
+    "罗马尼亚硬拉": "腘绳肌、臀大肌",
+    "腿举": "股四头肌",
+    "腿弯举": "腘绳肌",
+    "小腿提踵": "小腿三头肌",
+
+    // 增肌计划 - Day 4: 肩部 + 手臂
+    "坐姿哑铃推举": "三角肌前中束",
+    "哑铃侧平举": "三角肌中束",
+    "俯身哑铃飞鸟": "三角肌后束",
+    "杠铃弯举": "肱二头肌",
+    "碎颅者": "肱三头肌",
+
+    // 减脂计划
+    "哑铃卧推": "胸大肌",
+    "哑铃划船": "背阔肌",
+    "肩推": "三角肌",
+    "深蹲": "股四头肌、臀大肌",
+    "硬拉": "腘绳肌、臀大肌、背部",
+    "弓步蹲": "股四头肌、臀大肌"
+};
+
 // ============== Exercise Grid Rendering ==============
 const exerciseGrid = document.getElementById('exerciseGrid');
 let currentGroup = 'chest';
@@ -214,3 +253,28 @@ window.addEventListener('scroll', () => {
 updateActiveNav();
 updateNavBg();
 handleScrollAnimations();
+
+// ============== Inject Muscle Tags to Plan Exercises ==============
+function injectMuscleTags() {
+    document.querySelectorAll('.day-exercises li').forEach(li => {
+        const html = li.innerHTML;
+        // 提取动作名（从 HTML 中提取文本，取第一个词）
+        const exerciseName = li.textContent.trim().split(' ')[0];
+
+        // 查找肌肉信息
+        let muscle = PLAN_EXERCISE_MUSCLES[exerciseName];
+
+        // 特殊处理：引体向上 / 高位下拉
+        if (!muscle && html.includes('引体向上 / 高位下拉')) {
+            muscle = PLAN_EXERCISE_MUSCLES['引体向上'];
+        }
+
+        if (muscle) {
+            // 在动作名后面、<small>标签前面添加肌肉信息
+            li.innerHTML = html.replace(/^(.+?) (<small>)/, '$1 <span class="ex-muscle-tag">(' + muscle + ')</span> $2');
+        }
+    });
+}
+
+// 页面加载完成后注入肌肉标注
+document.addEventListener('DOMContentLoaded', injectMuscleTags);
